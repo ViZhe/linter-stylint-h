@@ -3,7 +3,7 @@ Atom linter-stylint-h
 
 This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides an interface to [stylint](https://www.npmjs.com/package/stylint). It will be used with files that have the “Stylus” syntax.
 
-[![Build Status](https://travis-ci.org/ViZhe/linter-stylint-h.svg)](https://travis-ci.org/ViZhe/linter-stylint-h)
+[![Build Status](https://travis-ci.org/ViZhe/linter-stylint-h.svg?style=flat-square)](https://travis-ci.org/ViZhe/linter-stylint-h)
 
 ### Plugin installation
 ```

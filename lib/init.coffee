@@ -5,7 +5,7 @@ module.exports =
     config:
         executablePath:
             type: 'string'
-            default: 'stylint'
+            default: path.join __dirname, '..', 'node_modules', 'stylint', 'bin', 'stylint'
             description: 'Full path to binary (e.g. /usr/local/bin/stylint)'
 
         projectConfigFile:
@@ -56,7 +56,7 @@ module.exports =
                 if(onlyRunWhenConfig || !runWithStrictMode && projectConfigPath)
                     parameters.push('-c', projectConfigPath)
 
-                return helpers.exec(executablePath, parameters, stdin: fileText).then (result) ->
+                return helpers.execNode(executablePath, parameters, stdin: fileText).then (result) ->
                     toReturn = []
                     regex = XRegExp(
                         '((?P<warning>Warning)|(?P<error>Error)):\\s*(?P<message>.+)\\s*' +
