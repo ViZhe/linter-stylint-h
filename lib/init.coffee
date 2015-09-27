@@ -1,3 +1,6 @@
+helpers = require('atom-linter')
+XRegExp = require('xregexp').XRegExp
+
 module.exports =
     config:
         executablePath:
@@ -24,8 +27,6 @@ module.exports =
         require('atom-package-deps').install 'linter-stylint-h'
 
     provideLinter: ->
-        helpers = require('atom-linter')
-        XRegExp = require('xregexp').XRegExp
 
         provider =
             grammarScopes: ['source.stylus', 'source.styl']
