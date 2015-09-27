@@ -2,6 +2,16 @@
   "name": "linter-stylint-h",
   "main": "./lib/init",
   "version": "0.0.1",
+  "description": "Linter plugin for Stylus, using `stylint`.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ViZhe/linter-stylint-h.git"
+  },
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/ViZhe/linter-stylint-h/issues"
+  },
+  "homepage": "https://github.com/ViZhe/linter-stylint-h",
   "license": "MIT",
   "dependencies": {
     "xregexp": "~2.0.0",
