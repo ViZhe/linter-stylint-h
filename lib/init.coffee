@@ -27,7 +27,6 @@ module.exports =
         require('atom-package-deps').install 'linter-stylint-h'
 
     provideLinter: ->
-
         provider =
             grammarScopes: ['source.stylus', 'source.styl']
             scope: 'file'
