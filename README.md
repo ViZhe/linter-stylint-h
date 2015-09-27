@@ -7,7 +7,6 @@ This linter plugin for [Linter](https://github.com/AtomLinter/Linter) provides a
 
 ### Plugin installation
 ```
-$ npm install -g stylint
 $ apm install linter-stylint-h
 ```
 
