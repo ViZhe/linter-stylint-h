@@ -1,6 +1,5 @@
 path = require('path')
 helpers = require('atom-linter')
-XRegExp = require('atom-linter/node_modules/xregexp').XRegExp;
 
 module.exports =
     config:
@@ -52,32 +51,16 @@ module.exports =
 
                 if(onlyRunWhenConfig && !projectConfigPath)
                     console.error 'Stylint config no found'
-                    return
+                    return []
 
                 if(onlyRunWhenConfig || !runWithStrictMode && projectConfigPath)
                     parameters.push('-c', projectConfigPath)
 
-                return helpers.execNode(executablePath, parameters, stdin: fileText).then (result) ->
-                    toReturn = []
-                    regex = XRegExp(
-                        '((?P<warning>Warning)|(?P<error>Error)):\\s*(?P<message>.+)\\s*' +
-                        'File:\\s(?P<file>.+)\\s*' +
-                        'Line:\\s(?P<line>\\d+):\\s*(?P<near>.+\\S)',
-                        'im'
-                    )
-                    XRegExp.forEach result, regex, (match) ->
-                        type = if match.error
-                            'Error'
-                        else
-                            'Warning'
+                return helpers.execNode(executablePath, parameters, stdin: fileText).then (output) ->
+                    regex = '(?<type>(Warning|Error)): (?<message>.*), File: (?<file>.*), Line: (?<line>\\d+):'
 
-                        toReturn.push {
-                            type: type
-                            text: match.message
-                            filePath: match.file
-                            range: [
-                                [match.line - 1, -1],
-                                [match.line - 1, -1]
-                            ]
-                        }
-                    return toReturn
+                    output = output.replace(/(\r?\n){2}/g,'----')
+                    output = output.replace(/(\r?\n){1}/g,', ')
+                    output = output.replace(/----/g,'\n')
+
+                    return helpers.parse(output, regex)
