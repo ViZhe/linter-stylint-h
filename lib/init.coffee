@@ -1,3 +1,6 @@
+console.log 'path1: ' + path
+path = require('path')
+console.log 'path2: ' + path
 helpers = require('atom-linter')
 XRegExp = require('xregexp').XRegExp
 
