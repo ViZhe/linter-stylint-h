@@ -3,6 +3,7 @@ path = require('path')
 console.log 'path2: ' + path
 helpers = require('atom-linter')
 XRegExp = require('xregexp').XRegExp
+path    = require('path')
 
 module.exports =
     config:
