@@ -1,8 +1,6 @@
-console.log 'path1: ' + path
 path = require('path')
-console.log 'path2: ' + path
 helpers = require('atom-linter')
-XRegExp = require('xregexp').XRegExp
+XRegExp = require('atom-linter/node_modules/xregexp').XRegExp;
 
 module.exports =
     config:
@@ -53,7 +51,7 @@ module.exports =
                 parameters.push(filePath)
 
                 if(onlyRunWhenConfig && !projectConfigPath)
-                    console.log 'Stylint config no found'
+                    console.error 'Stylint config no found'
                     return
 
                 if(onlyRunWhenConfig || !runWithStrictMode && projectConfigPath)
