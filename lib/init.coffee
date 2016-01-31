@@ -1,6 +1,5 @@
-path = require('path')
-helpers = require('atom-linter')
 {CompositeDisposable} = require('atom')
+path = require('path')
 
 module.exports =
     config:
@@ -41,6 +40,7 @@ module.exports =
                 @onlyRunWhenConfig = onlyRunWhenConfig
 
     provideLinter: ->
+        helpers = require('atom-linter')
         provider =
             grammarScopes: ['source.stylus', 'source.styl']
             scope: 'file'
