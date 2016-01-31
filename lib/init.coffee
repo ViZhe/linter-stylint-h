@@ -27,16 +27,16 @@ module.exports =
     activate: ->
         require('atom-package-deps').install()
         @subscriptions = new CompositeDisposable
-        @subscriptions.add atom.config.observe 'linter-stylint.executablePath',
+        @subscriptions.add atom.config.observe 'linter-stylint-h.executablePath',
             (executablePath) =>
                 @executablePath = executablePath
-        @subscriptions.add atom.config.observe 'linter-stylint.projectConfigFile',
+        @subscriptions.add atom.config.observe 'linter-stylint-h.projectConfigFile',
             (projectConfigFile) =>
                 @projectConfigFile = projectConfigFile
-        @subscriptions.add atom.config.observe 'linter-stylint.runWithStrictMode',
+        @subscriptions.add atom.config.observe 'linter-stylint-h.runWithStrictMode',
             (runWithStrictMode) =>
                 @runWithStrictMode = runWithStrictMode
-        @subscriptions.add atom.config.observe 'linter-stylint.onlyRunWhenConfig',
+        @subscriptions.add atom.config.observe 'linter-stylint-h.onlyRunWhenConfig',
             (onlyRunWhenConfig) =>
                 @onlyRunWhenConfig = onlyRunWhenConfig
 
